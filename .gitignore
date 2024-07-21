@@ -1,5 +1,8 @@
 # node packages
 node_modules
 
+# ios system
+.DS_Store
+
 # environment variables
 .env
