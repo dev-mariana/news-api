@@ -1,0 +1,19 @@
+{
+  "name": "news-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Mariana Bastos",
+  "license": "ISC",
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "fastify": "^4.28.1"
+  }
+}
