@@ -1,0 +1,16 @@
+version: "3.1"
+
+services:
+  mysql:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=123
+      - MYSQL_DB=news
+    volumes:
+      - mysql_data:/var/lib/mysql/data
+
+volumes:
+  mysql_data:
