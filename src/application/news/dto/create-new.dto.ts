@@ -1,7 +1,7 @@
 import z from "zod";
 import { CreateNewInput } from "../../../domain/news/services/ports/input/create-new.input";
 
-const createNewSchema = z.object({
+export const createNewSchema = z.object({
   title: z.string(),
   description: z.string(),
   content: z.string(),
