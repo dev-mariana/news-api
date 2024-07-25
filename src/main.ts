@@ -1,16 +1,16 @@
-import { PrismaClient } from "@prisma/client";
 import "dotenv/config";
-import Fastify from "fastify";
-import { App } from "./app";
+import fastify from "fastify";
 
-const fastify = Fastify({
+const app = fastify({
   logger: true,
 });
 
-const port = Number.parseInt(process.env.PORT || "8080");
+const port = process.env.PORT || 8080;
 
-const prisma = new PrismaClient();
-
-const app = new App(prisma, fastify, port);
-
-app.start();
+try {
+  app.listen({ port: Number(port) }).then(() => {
+    app.log.info("Server is running...");
+  });
+} catch (error) {
+  app.log.error(error);
+}
