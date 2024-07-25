@@ -9,4 +9,8 @@ export class NewsService implements INewsService {
   async create(data: CreateNewInput): Promise<New> {
     return await this.newsRepository.create(data);
   }
+
+  async getNews(): Promise<New[]> {
+    return await this.newsRepository.getNews();
+  }
 }

@@ -16,4 +16,8 @@ export class NewsRepository implements INewsRepository {
       },
     });
   }
+
+  async getNews(): Promise<New[]> {
+    return await this.prisma.new.findMany();
+  }
 }

@@ -21,4 +21,12 @@ export class NewsController {
       return reply.status(201).send(data);
     });
   }
+
+  async getNews(app: FastifyInstance) {
+    app.get("/api/news", async (request, reply) => {
+      const news = await this.newsService.getNews();
+
+      return reply.status(200).send(news);
+    });
+  }
 }
