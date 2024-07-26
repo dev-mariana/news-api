@@ -13,4 +13,8 @@ export class NewsService implements INewsService {
   async getNews(): Promise<New[]> {
     return await this.newsRepository.getNews();
   }
+
+  async getById(id: string): Promise<New> {
+    return await this.newsRepository.getById(id);
+  }
 }

@@ -1,6 +1,7 @@
 import type { FastifyInstance } from "fastify";
 import type { NewsService } from "../../../domain/news/services/news.service";
 import { createNewSchema } from "../dto/create-new.dto";
+import { getNewByIdSchema } from "../dto/get-new-by-id.dto";
 
 export class NewsController {
   constructor(private readonly newsService: NewsService) {}
@@ -25,6 +26,16 @@ export class NewsController {
   async getNews(app: FastifyInstance) {
     app.get("/api/news", async (request, reply) => {
       const news = await this.newsService.getNews();
+
+      return reply.status(200).send(news);
+    });
+  }
+
+  async getById(app: FastifyInstance) {
+    app.get("/api/news/:id", async (request, reply) => {
+      const { id } = getNewByIdSchema.parse(request.params);
+
+      const news = await this.newsService.getById(id);
 
       return reply.status(200).send(news);
     });

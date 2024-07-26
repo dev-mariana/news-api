@@ -20,4 +20,14 @@ export class NewsRepository implements INewsRepository {
   async getNews(): Promise<New[]> {
     return await this.prisma.new.findMany();
   }
+
+  async getById(id: string): Promise<New> {
+    const data = await this.prisma.new.findUnique({ where: { id } });
+
+    if (!data) {
+      throw new Error("New not found.");
+    }
+
+    return data;
+  }
 }
