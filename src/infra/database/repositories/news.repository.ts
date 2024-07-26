@@ -13,6 +13,7 @@ export class NewsRepository implements INewsRepository {
         content: data.content,
         created_by: data.created_by,
         created_at: new Date(),
+        updated_at: null,
       },
     });
   }
