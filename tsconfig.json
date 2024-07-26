@@ -11,6 +11,7 @@
     "resolveJsonModule": true,
     "allowArbitraryExtensions": true,
     "resolvePackageJsonExports": true,
-    "moduleResolution": "NodeNext"
+    "moduleResolution": "NodeNext",
+    "strictNullChecks": false
   }
 }
