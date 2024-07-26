@@ -43,4 +43,8 @@ export class NewsRepository implements INewsRepository {
       },
     });
   }
+
+  async delete(id: string): Promise<void> {
+    await this.prisma.new.delete({ where: { id } });
+  }
 }

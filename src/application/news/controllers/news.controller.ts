@@ -1,6 +1,7 @@
 import type { FastifyInstance } from "fastify";
 import type { NewsService } from "../../../domain/news/services/news.service";
 import { createNewSchema } from "../dto/create-new.dto";
+import { deleteNewSchema } from "../dto/delete-new.dto";
 import { getNewByIdSchema } from "../dto/get-new-by-id.dto";
 import { updateNewSchema } from "../dto/update-new.dto";
 
@@ -57,6 +58,16 @@ export class NewsController {
       });
 
       return reply.status(200).send(data);
+    });
+  }
+
+  async delete(app: FastifyInstance) {
+    app.delete("/api/news/:id", async (request, reply) => {
+      const { id } = deleteNewSchema.parse(request.params);
+
+      await this.newsService.delete(id);
+
+      return reply.status(200).send({ message: "New deleted." });
     });
   }
 }

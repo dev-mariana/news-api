@@ -27,4 +27,14 @@ export class NewsService implements INewsService {
 
     return await this.newsRepository.update(id, data);
   }
+
+  async delete(id: string): Promise<void> {
+    const newExists = await this.newsRepository.getById(id);
+
+    if (!newExists) {
+      throw new Error("New not found.");
+    }
+
+    await this.newsRepository.delete(id);
+  }
 }

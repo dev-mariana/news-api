@@ -5,4 +5,5 @@ export interface INewsRepository {
   getNews(): Promise<New[]>;
   getById(id: string): Promise<New>;
   update(id: string, data: New): Promise<New>;
+  delete(id: string): Promise<void>;
 }
