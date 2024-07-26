@@ -2,6 +2,7 @@ import type { FastifyInstance } from "fastify";
 import type { NewsService } from "../../../domain/news/services/news.service";
 import { createNewSchema } from "../dto/create-new.dto";
 import { getNewByIdSchema } from "../dto/get-new-by-id.dto";
+import { updateNewSchema } from "../dto/update-new.dto";
 
 export class NewsController {
   constructor(private readonly newsService: NewsService) {}
@@ -43,7 +44,7 @@ export class NewsController {
 
   async update(app: FastifyInstance) {
     app.patch("/api/news/:id", async (request, reply) => {
-      const { id } = getNewByIdSchema.parse(request.params);
+      const { id } = updateNewSchema.parse(request.params);
       const { title, description, content, created_by } = createNewSchema.parse(
         request.body
       );
