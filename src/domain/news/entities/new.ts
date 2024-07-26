@@ -5,6 +5,7 @@ export class New {
   content: string;
   created_by: string;
   created_at?: Date;
+  updated_at?: Date;
 
   constructor(data: New) {
     this.id = data.id;
@@ -13,5 +14,6 @@ export class New {
     this.content = data.content;
     this.created_by = data.created_by;
     this.created_at = data.created_at;
+    this.updated_at = data.updated_at;
   }
 }

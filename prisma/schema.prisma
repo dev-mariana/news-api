@@ -8,12 +8,13 @@ datasource db {
 }
 
 model New {
-  id          String   @id @default(uuid())
-  title       String   @db.Char(50)
-  description String   @db.VarChar(2000)
-  content     String   @db.VarChar(100)
-  created_by  String   @db.Char(50)
-  created_at  DateTime @db.DateTime()
+  id          String    @id @default(uuid())
+  title       String    @db.Char(50)
+  description String    @db.VarChar(2000)
+  content     String    @db.VarChar(100)
+  created_by  String    @db.Char(50)
+  created_at  DateTime  @db.DateTime()
+  updated_at  DateTime? @updatedAt @db.DateTime()
 
   @@map("news")
 }
