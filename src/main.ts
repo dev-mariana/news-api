@@ -17,6 +17,7 @@ const newsController = new NewsController(newsService);
 newsController.create(app);
 newsController.getNews(app);
 newsController.getById(app);
+newsController.update(app);
 
 try {
   app.listen({ port: Number(port) }).then(() => {

@@ -17,4 +17,14 @@ export class NewsService implements INewsService {
   async getById(id: string): Promise<New> {
     return await this.newsRepository.getById(id);
   }
+
+  async update(id: string, data: New): Promise<New> {
+    const newExists = await this.newsRepository.getById(id);
+
+    if (!newExists) {
+      throw new Error("New not found.");
+    }
+
+    return await this.newsRepository.update(id, data);
+  }
 }

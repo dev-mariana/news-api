@@ -40,4 +40,22 @@ export class NewsController {
       return reply.status(200).send(news);
     });
   }
+
+  async update(app: FastifyInstance) {
+    app.patch("/api/news/:id", async (request, reply) => {
+      const { id } = getNewByIdSchema.parse(request.params);
+      const { title, description, content, created_by } = createNewSchema.parse(
+        request.body
+      );
+
+      const data = await this.newsService.update(id, {
+        title,
+        description,
+        content,
+        created_by,
+      });
+
+      return reply.status(200).send(data);
+    });
+  }
 }
