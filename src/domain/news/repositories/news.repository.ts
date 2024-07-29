@@ -4,6 +4,6 @@ export interface INewsRepository {
   create(data: Partial<New>): Promise<New>;
   getNews(): Promise<New[]>;
   getById(id: string): Promise<New>;
-  update(id: string, data: New): Promise<New>;
+  update(id: string, data: Partial<New>): Promise<New>;
   delete(id: string): Promise<void>;
 }

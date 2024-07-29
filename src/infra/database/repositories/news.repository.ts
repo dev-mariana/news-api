@@ -32,7 +32,7 @@ export class NewsRepository implements INewsRepository {
     return data;
   }
 
-  async update(id: string, data: New): Promise<New> {
+  async update(id: string, data: Partial<New>): Promise<New> {
     return await this.prisma.new.update({
       where: { id },
       data: {

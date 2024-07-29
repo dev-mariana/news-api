@@ -17,7 +17,7 @@ export class NewsService implements INewsService {
     return await this.newsRepository.getById(id);
   }
 
-  async update(id: string, data: New): Promise<New> {
+  async update(id: string, data: Partial<New>): Promise<New> {
     const newExists = await this.newsRepository.getById(id);
 
     if (!newExists) {
