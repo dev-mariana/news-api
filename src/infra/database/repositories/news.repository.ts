@@ -5,7 +5,7 @@ import type { INewsRepository } from "../../../domain/news/repositories/news.rep
 export class NewsRepository implements INewsRepository {
   constructor(private prisma: PrismaClient) {}
 
-  async create(data: New): Promise<New> {
+  async create(data: Partial<New>): Promise<New> {
     return await this.prisma.new.create({
       data: {
         title: data.title,
