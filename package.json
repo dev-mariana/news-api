@@ -8,7 +8,8 @@
     "start:dev": "tsx --watch src/main.ts ",
     "lint": "biome lint",
     "test": "vitest",
-    "test:watch": "vitest --watch"
+    "test:watch": "vitest --watch",
+    "coverage": "vitest run --coverage"
   },
   "keywords": [],
   "author": "Mariana Bastos",
@@ -16,6 +17,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
     "@types/node": "^20.14.11",
+    "@vitest/coverage-v8": "^2.0.4",
     "prisma": "^5.17.0",
     "typescript": "^5.5.3",
     "vitest": "^2.0.4"
