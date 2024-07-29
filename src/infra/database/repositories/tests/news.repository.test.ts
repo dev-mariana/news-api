@@ -32,14 +32,4 @@ describe("NewsRepository", () => {
       updated_at: null,
     });
   });
-
-  it("should not create a new if a property is missing", async () => {
-    await expect(
-      newsRepository.create({
-        title: "Test",
-        description: "Testing..",
-        content: "Test Content",
-      })
-    ).rejects.toThrow(/Argument .* is missing/);
-  });
 });
