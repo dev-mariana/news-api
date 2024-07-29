@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "tsx src/main.ts",
-    "start:dev": "tsx src/main.ts",
+    "start:dev": "tsx --watch src/main.ts ",
     "lint": "biome lint",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest",
+    "test:watch": "vitest --watch"
   },
   "keywords": [],
   "author": "Mariana Bastos",
@@ -16,7 +17,8 @@
     "@biomejs/biome": "1.8.3",
     "@types/node": "^20.14.11",
     "prisma": "^5.17.0",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "vitest": "^2.0.4"
   },
   "dependencies": {
     "@prisma/client": "^5.17.0",
