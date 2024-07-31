@@ -1,5 +1,13 @@
 import { PrismaClient } from "@prisma/client";
-import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  it,
+  vi,
+} from "vitest";
 import { NewsRepository } from "../news.repository";
 
 const prisma = new PrismaClient();
@@ -12,6 +20,10 @@ describe("NewsRepository", () => {
 
   afterAll(async () => {
     await prisma.$disconnect();
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
   });
 
   it("should create a new", async () => {
@@ -47,5 +59,23 @@ describe("NewsRepository", () => {
         updated_at: null,
       },
     ]);
+  });
+
+  it("should get a new by id", async () => {
+    const id = "0042f3d6-6f52-42f4-87d5-fb51124615f4";
+    const mockNews = {
+      id: "0042f3d6-6f52-42f4-87d5-fb51124615f4",
+      title: "Test",
+      description: "Testing..",
+      content: "Test Content",
+      created_by: "Mari",
+      created_at: expect.any(Date),
+    };
+
+    vi.spyOn(newsRepository, "getById").mockResolvedValue(mockNews);
+
+    const news = await newsRepository.getById(id);
+
+    expect(news).toEqual(mockNews);
   });
 });
