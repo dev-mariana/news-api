@@ -78,4 +78,16 @@ describe("NewsRepository", () => {
 
     expect(news).toEqual(mockNews);
   });
+
+  it("should return not found error if new not found", async () => {
+    const id = "bb3bc032-e865-4477-9414-9b918e442428";
+
+    vi.spyOn(newsRepository, "getById").mockRejectedValue(
+      new Error("New not found.")
+    );
+
+    await expect(newsRepository.getById(id)).rejects.toThrow(
+      new Error("New not found.")
+    );
+  });
 });
