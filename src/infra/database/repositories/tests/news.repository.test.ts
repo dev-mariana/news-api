@@ -32,4 +32,20 @@ describe("NewsRepository", () => {
       updated_at: null,
     });
   });
+
+  it("should get all news", async () => {
+    const news = await newsRepository.getNews();
+
+    expect(news).toEqual([
+      {
+        id: expect.any(String),
+        title: "Test",
+        description: "Testing..",
+        content: "Test Content",
+        created_by: "Mari",
+        created_at: expect.any(Date),
+        updated_at: null,
+      },
+    ]);
+  });
 });
