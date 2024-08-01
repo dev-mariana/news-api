@@ -6,7 +6,7 @@ export default defineConfig({
       provider: "v8",
       reporter: ["text", "json", "html"],
       enabled: true,
-      include: ["src/**/*.{ts, js}"],
+      include: ["src/**/*.{test, spec}.{ts, js}"],
       exclude: ["node_modules", "test-utils/**/*"],
     },
   },
