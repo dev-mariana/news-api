@@ -13,5 +13,6 @@
     "resolvePackageJsonExports": true,
     "moduleResolution": "NodeNext",
     "strictNullChecks": false
-  }
+  },
+  "include": ["src/**/*", "/vitest.config.mts"]
 }
