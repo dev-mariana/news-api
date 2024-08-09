@@ -7,7 +7,7 @@ export default defineConfig({
       reporter: ["text", "json", "html"],
       enabled: true,
       include: ["src/**/*.{test, spec}.{ts, js}"],
-      exclude: ["node_modules", "test-utils/**/*"],
+      exclude: ["node_modules"],
     },
   },
 });
