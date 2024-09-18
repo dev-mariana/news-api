@@ -1,11 +1,5 @@
-import { app } from "./server";
+import fastify from "fastify";
 
-const port = process.env.PORT || 8080;
-
-try {
-  app.listen({ port: Number(port) }).then(() => {
-    app.log.info("Server is running...");
-  });
-} catch (error) {
-  app.log.error(error);
-}
+export const app = fastify({
+  logger: true,
+});
