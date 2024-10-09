@@ -13,8 +13,6 @@ describe("NewsRepository", () => {
       content: "Test Content",
       created_by: "Mari",
     });
-
-    console.log(result);
   });
 
   afterEach(() => {
@@ -62,5 +60,36 @@ describe("NewsRepository", () => {
     await expect(inMemoryNewsRepository.getById(id)).rejects.toThrow(
       new Error("New not found.")
     );
+  });
+
+  it("should be able to update a new", async () => {
+    const createdNew = await inMemoryNewsRepository.create({
+      title: "Test",
+      description: "Testing..",
+      content: "Test Content",
+      created_by: "Mari",
+    });
+
+    const news = await inMemoryNewsRepository.update(createdNew.id, {
+      title: "Test 2",
+      description: "Testing..",
+      content: "Test Content",
+      created_by: "Mari",
+    });
+
+    expect(news.title).toEqual("Test 2");
+  });
+
+  it("should be able to delete a new", async () => {
+    const createdNew = await inMemoryNewsRepository.create({
+      title: "Test",
+      description: "Testing..",
+      content: "Test Content",
+      created_by: "Mari",
+    });
+
+    await inMemoryNewsRepository.delete(createdNew.id);
+
+    expect(inMemoryNewsRepository.data).toHaveLength(1);
   });
 });
