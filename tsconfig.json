@@ -12,7 +12,10 @@
     "allowArbitraryExtensions": true,
     "resolvePackageJsonExports": true,
     "moduleResolution": "NodeNext",
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["src/**/*", "/vitest.config.mts"]
 }
