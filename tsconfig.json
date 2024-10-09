@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2022",
-    "module": "NodeNext",
+    "module": "CommonJS",
     "rootDir": "./src",
     "outDir": "./dist",
     "esModuleInterop": true,
@@ -10,8 +10,6 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "allowArbitraryExtensions": true,
-    "resolvePackageJsonExports": true,
-    "moduleResolution": "NodeNext",
     "strictNullChecks": false,
     "paths": {
       "@/*": ["./src/*"]
