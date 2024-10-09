@@ -1,4 +1,4 @@
-import type { NewsRepository } from "../../../infra/database/repositories/news.repository";
+import type { NewsRepository } from "../../../infra/database/repositories/prisma/news.repository";
 import type { New } from "../entities/new";
 import type { INewsService } from "./interfaces/news.service";
 
